@@ -1,0 +1,362 @@
+/* General styles for body and html */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.navbar .nav-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1.2rem;
+}
+
+.navbar .nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Container for the background video */
+.background {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: auto; /* Added scroll functionality */
+}
+
+/* Styling for the background video */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Keeps the video behind other content */
+}
+
+/* Overlay for darkening the video background */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Container for central content */
+.container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 4rem; /* Space for the fixed navbar */
+}
+
+/* Site title styling */
+.site-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Tagline styling */
+.tagline {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Description styling */
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+/* Container for the prompt input and button */
+.prompt-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Styling for the prompt input field */
+.prompt-input {
+    width: 100%;
+    max-width: 600px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    border-bottom: 2px solid white;
+    position: relative;
+    z-index: 1; /* Ensure input is above overlay */
+}
+
+/* Placeholder styling for typing animation */
+.prompt-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Cursor blinking effect for typing animation */
+.prompt-input.cursor-blink::after {
+    content: '|';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: blink-caret 0.7s step-end infinite;
+}
+
+/* Keyframes for blinking cursor effect */
+@keyframes blink-caret {
+    from, to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Styling for the recommendation button */
+.submit-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.submit-btn:hover {
+    background-color: #ddd;
+}
+
+/* Container for book recommendations */
+.recommendations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Styling for individual book cards */
+.book-card {
+    background: white;
+    color: black;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ddd; /* Added border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for book cards */
+.book-card:hover {
+    transform: scale(1.05);
+}
+
+/* Styling for book card images */
+.book-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Container for book detail view */
+.book-detail {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    color: black;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+    z-index: 1000;
+}
+
+/* Styling for book detail images */
+.book-detail img {
+    float: left;
+    margin-right: 1rem;
+    max-width: 200px;
+}
+
+/* Content styling inside book detail */
+.book-detail .detail-content {
+    overflow: hidden;
+}
+
+/* Close button for book detail view */
+.book-detail .close-btn {
+    cursor: pointer;
+    color: red;
+    font-size: 1.5rem;
+    float: right;
+}
+
+/* Styling for the purchase button */
+.purchase-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for purchase button */
+.purchase-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Clear recommendations button styling */
+.clear-btn {
+    display: none; /* Initially hidden */
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0000;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for clear button */
+.clear-btn:hover {
+    background-color: #cc0000;
+}
+
+/* Show clear button if recommendations are visible */
+.recommendations:empty + #clear-btn {
+    display: none;
+}
+
+/* About page content */
+.about-content {
+   
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+}
+
+/* About image styling */
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* About image styling */
+.about-image img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* About details styling */
+.about-details {
+    margin-left: 2rem;
+    max-width: 600px;
+    text-align: left;
+    color: black; /* Set text color to black */
+}
+
+/* Title and details styling */
+.about-details h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: black; /* Set title color to black */
+}
+
+/* Horizontal line after title */
+.divider {
+    border: 0;
+    border-top: 2px solid #ddd;
+    margin: 1rem 0;
+}
+
+/* Paragraph styling */
+.about-details p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    color: black; /* Set paragraph color to black */
+}
+
+/* Social icons styling */
+.social-icons {
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: black; /* Set social icons color to black */
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+}
+
+.social-icons a:hover {
+    color: #555; /* Slightly lighter color on hover */
+}
+
+/* Footer styling */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border at the top */
+}

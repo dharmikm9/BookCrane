@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookCrane</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+    </nav>
+    <div class="background">
+        <video autoplay muted loop class="background-video">
+            <source src="book_crane.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <div class="container">
+            <h1 class="site-title">BookCrane</h1>
+            <p class="tagline">Lift up your next readings !!</p>
+            <p class="description">Discover your next favorite book with personalized recommendations based on your interests. Explore thrilling adventures, heartwarming romances, and more!</p>
+            <div class="prompt-container">
+                <input 
+                    type="text" 
+                    id="prompt" 
+                    class="prompt-input cursor-blink" 
+                    placeholder="Looking for a thrilling adventure..."
+                >
+                <button id="submit-btn" class="submit-btn">Get Recommendations</button>
+            </div>
+            <div id="recommendations" class="recommendations"></div>
+            <div id="book-detail" class="book-detail"></div>
+            <button id="clear-btn" class="clear-btn">Clear Recommendations</button>
+        </div>
+    </div>
+
+	    <footer class="footer">
+        <p>&copy; 2024 BookCrane. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://github.com/yourprofile" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/yourprofile/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://yourwebsite.com" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

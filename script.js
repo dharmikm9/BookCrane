@@ -6,7 +6,7 @@ document.getElementById('submit-btn').addEventListener('click', function() {
 
     // Dummy data for book recommendations
     const recommendations = [
-        { id: 1, title: 'The Great Adventure', author: 'John Doe', description: 'An epic journey through uncharted lands.', cover: './assets/default_book_cover.jpg' },
+        { id: 1, title: 'The Great Adventure', author: 'John Doe', description: 'An epic journey through uncharted lands.', cover: './assests/default_book_cover.jpg' },
         { id: 2, title: 'Love in the Time of AI', author: 'Jane Smith', description: 'A romantic tale set in a futuristic world.', cover: 'https://images.isbndb.com/covers/60/34/9781416986034.jpg' },
         { id: 3, title: 'Science Fiction Extravaganza', author: 'James Brown', description: 'A collection of the best sci-fi stories.', cover: 'https://images.isbndb.com/covers/03/09/9780020420309.jpg' },
     ];

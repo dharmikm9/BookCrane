@@ -157,6 +157,31 @@ body, html {
     background-color: #ddd;
 }
 
+.error-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 5px;
+    display: none;
+}
+
+.loader {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+
 /* Container for book recommendations */
 .recommendations {
     display: flex;
@@ -336,7 +361,7 @@ body, html {
 }
 
 .social-icons a {
-    color: black; /* Set social icons color to black */
+    color: white; /* Set social icons color to black */
     text-decoration: none;
     margin: 0 0.5rem;
     font-size: 1.5rem;

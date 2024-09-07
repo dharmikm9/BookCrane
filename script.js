@@ -1,3 +1,20 @@
+// Sleep function using Promise and setTimeout
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// Function to display and update the error message
+const errorMessage = document.getElementById('error-message');
+function showError(message) {
+    errorMessage.textContent = message; // Update the message
+    errorMessage.style.display = 'block'; // Show the error message
+}
+
+// Function to hide the error message
+function hideError() {
+    errorMessage.style.display = 'none'; // Hide the error message
+}
+
 // Function to update the UI with the response data
 function updateUIWithBookRecommendations(data) {
     console.log("Recived Data from API.. Now Loading in HTML")
@@ -55,36 +72,53 @@ function updateUIWithBookRecommendations(data) {
 
 // Function to call the API and update the UI with the response data
 async function fetchBookRecommendations() {
-  const promptInput = document.getElementById('prompt').value;
-  const endpoint = 'https://f52d-35-221-159-155.ngrok-free.app/recommendation';
-  const requestBody = {
-    query: promptInput,
-  };
 
-  try {
-    // Making the API call using fetch
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestBody),
-    });
+  console.log("Submit request..")
+  const promptInput = document.getElementById('prompt').value.trim();
+  const submitBtn = document.getElementById('submit-btn');
+  const errorMessage = document.getElementById('error-message');
 
-    // Checking if the response is okay
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    // Parsing the response to JSON
-    const data = await response.json();
-
-    // Handle the response data
-    updateUIWithBookRecommendations(data);
-  } catch (error) {
-    console.error('Error fetching book recommendations:', error);
+  if (promptInput === '') {
+      showError('Please enter a prompt.'); // Display error message
+  }else if (promptInput.length < 15) {
+      showError('The prompt must be at least 5 characters long.'); // Update error message with different condition
   }
+  else {
+      hideError(); // Hide the error message if input is valid
+      loader.style.display = 'block';
 
+      const endpoint = 'https://f52d-35-221-159-155.ngrok-free.app/recommendation';
+      const requestBody = {
+        query: promptInput,
+      };
+
+      try {
+        // Making the API call using fetch
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(requestBody),
+        });
+
+        // Checking if the response is okay
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // Parsing the response to JSON
+        const data = await response.json();
+
+        // Handle the response data
+        updateUIWithBookRecommendations(data);
+      } catch (error) {
+        showError("Unable to connect to the server. Please check your network connection or try again later."); // Display error message
+        console.error('Error fetching book recommendations:', error);
+      }finally {
+           loader.style.display = 'none';
+      }
+  }
 
 }
 

@@ -42,7 +42,7 @@ function updateUIWithBookRecommendations(data) {
                 <h3>${metadata.book_title}</h3>
                 <p>Genres: ${metadata.genres}</p>
                 <p><strong>Author:</strong> ${metadata.author || 'Unknown Author'}</p>
-                <p><strong>Publisher:</strong> ${metadata.publisher}</p>
+                <p><strong>Publisher:</strong> ${metadata.publisher || ' - '}</p>
             </div>
         `;
     });
@@ -87,7 +87,7 @@ async function fetchBookRecommendations() {
       hideError(); // Hide the error message if input is valid
       loader.style.display = 'block';
 
-      const endpoint = 'https://f52d-35-221-159-155.ngrok-free.app/recommendation';
+      const endpoint = 'https://0ef7-34-147-75-5.ngrok-free.app/recommendation';
       const requestBody = {
         query: promptInput,
       };
@@ -206,11 +206,11 @@ function showBookDetail(id,description,metadata) {
         <img src="${coverUrl}" alt="${metadata.book_title || 'Book Cover'}">
         <div class="detail-content">
             <h2>${metadata.book_title}</h2>
-            <p><strong>Author:</strong> ${metadata.author}</p>
-            <p><strong>Publisher:</strong> ${metadata.publisher}</p>
-            <p><strong>Genres:</strong> ${metadata.genres}</p>
-            <p><strong>ISBN:</strong> ${metadata.isbn}</p>
+            <p><strong>Author:</strong> ${metadata.author || ' - '}</p>
             <p><strong>Description:</strong> ${description}</p>
+            <p><strong>Genres:</strong> ${metadata.genres}</p>
+            <p><strong>Publisher:</strong> ${metadata.publisher || '-'}</p>
+            <p><strong>ISBN:</strong> ${metadata.isbn}</p>
             <button class="purchase-btn">Purchase</button>
         </div>
     `;

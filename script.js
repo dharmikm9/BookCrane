@@ -40,7 +40,7 @@ function updateUIWithBookRecommendations(data) {
                 <img src="${coverUrl}" alt="${metadata.book_title || 'Book Cover'}">
                 <p hidden><strong>ID:</strong> ${id}</p>
                 <h3>${metadata.book_title}</h3>
-                <p>Genres: ${metadata.genres}</p>
+                <p><strong>Genres:</strong> ${metadata.genres || ' - '}</p>
                 <p><strong>Author:</strong> ${metadata.author || 'Unknown Author'}</p>
                 <p><strong>Publisher:</strong> ${metadata.publisher || ' - '}</p>
             </div>
@@ -122,45 +122,7 @@ async function fetchBookRecommendations() {
 
 }
 
-
 document.getElementById('submit-btn').addEventListener('click', fetchBookRecommendations);
-
-//document.getElementById('submit-btn').addEventListener('click', function() {
-//    const promptInput = document.getElementById('prompt').value;
-//    const recommendationsDiv = document.getElementById('recommendations');
-//    const clearBtn = document.getElementById('clear-btn');
-//    recommendationsDiv.innerHTML = '';
-//
-//    // Dummy data for book recommendations
-//    const recommendations = [
-//        { id: 1, title: 'The Great Adventure', author: 'John Doe', description: 'An epic journey through uncharted lands.', cover: './assests/default_book_cover.jpg' },
-//        { id: 2, title: 'Love in the Time of AI', author: 'Jane Smith', description: 'A romantic tale set in a futuristic world.', cover: 'https://images.isbndb.com/covers/60/34/9781416986034.jpg' },
-//        { id: 3, title: 'Science Fiction Extravaganza', author: 'James Brown', description: 'A collection of the best sci-fi stories.', cover: 'https://images.isbndb.com/covers/03/09/9780020420309.jpg' },
-//    ];
-//
-//    // Display the book recommendations
-//    recommendations.forEach(book => {
-//        const bookCard = document.createElement('div');
-//        bookCard.className = 'book-card';
-//        bookCard.innerHTML = `
-//            <img src="${book.cover}" alt="${book.title} Cover">
-//            <h3>${book.title}</h3>
-//            <p><strong>Author:</strong> ${book.author}</p>
-//            <p>${book.description}</p>
-//        `;
-//        bookCard.addEventListener('click', () => showBookDetail(book));
-//        recommendationsDiv.appendChild(bookCard);
-//    });
-//
-//    // Show the clear button if there are recommendations
-//    if (recommendationsDiv.children.length > 0) {
-//        clearBtn.style.display = 'block';
-//    } else {
-//        clearBtn.style.display = 'none';
-//    }
-//});
-
-
 
 function closeBookDetail() {
     document.getElementById('book-detail').style.display = 'none';
@@ -203,15 +165,17 @@ function showBookDetail(id,description,metadata) {
     const bookDetailDiv = document.getElementById('book-detail');
     bookDetailDiv.innerHTML = `
         <span class="close-btn" onclick="closeBookDetail()">×</span>
+        <div class="display-card">
         <img src="${coverUrl}" alt="${metadata.book_title || 'Book Cover'}">
         <div class="detail-content">
             <h2>${metadata.book_title}</h2>
-            <p><strong>Author:</strong> ${metadata.author || ' - '}</p>
+            <p><strong>Author:</strong> ${metadata.author || ' Unknown Author '}</p>
             <p><strong>Description:</strong> ${description}</p>
-            <p><strong>Genres:</strong> ${metadata.genres}</p>
-            <p><strong>Publisher:</strong> ${metadata.publisher || '-'}</p>
-            <p><strong>ISBN:</strong> ${metadata.isbn}</p>
+            <p><strong>Genres:</strong> ${metadata.genres || ' - '}</p>
+            <p><strong>Publisher:</strong> ${metadata.publisher || ' - '}</p>
+            <p><strong>ISBN:</strong> ${metadata.isbn || ' - '}</p>
             <button class="purchase-btn">Purchase</button>
+        </div>
         </div>
     `;
     bookDetailDiv.style.display = 'block';

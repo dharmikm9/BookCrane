@@ -61,7 +61,6 @@ body, html {
 .container {
     position: relative;
     z-index: 1;
-    text-align: center;
     color: white;
     width: 90%;
     max-width: 1200px;
@@ -74,12 +73,14 @@ body, html {
 .site-title {
     font-size: 3rem;
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 /* Tagline styling */
 .tagline {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 /* Description styling */
@@ -88,6 +89,7 @@ body, html {
     margin-bottom: 2rem;
     max-width: 800px;
     margin: 0 auto 2rem;
+    text-align: center;
 }
 
 /* Container for the prompt input and button */
@@ -222,6 +224,8 @@ body, html {
     position: fixed;
     top: 10%;
     left: 50%;
+    height: 70%;
+    width: 80%;
     transform: translateX(-50%);
     background: white;
     color: black;
@@ -230,18 +234,42 @@ body, html {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     max-width: 80%;
     z-index: 1000;
+    overflow:auto;
+}
+
+.display-card {
+    display:flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+    .display-card {
+        flex-direction: row;
+    }
+
 }
 
 /* Styling for book detail images */
 .book-detail img {
-    float: left;
-    margin-right: 1rem;
-    max-width: 200px;
+    margin: 0 auto;
+    max-width: 280px;
+    flex:1;
+
 }
 
 /* Content styling inside book detail */
 .book-detail .detail-content {
-    overflow: hidden;
+    margin-left: 16px;
+}
+
+.detail-content h2 {
+    font-size:1.1em;
+}
+
+@media only screen and (min-width: 768px) {
+.detail-content h2 {
+    font-size:1.5em;
+}
 }
 
 /* Close button for book detail view */
@@ -254,6 +282,7 @@ body, html {
 
 /* Styling for the purchase button */
 .purchase-btn {
+    margin-top: 1rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
     border: none;
@@ -309,6 +338,7 @@ body, html {
 /* About image styling */
 .about-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem;
@@ -317,6 +347,12 @@ body, html {
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (min-width: 768px) {
+  .about-content {
+    flex-direction: row;
+  }
 }
 
 /* About image styling */
@@ -336,9 +372,16 @@ body, html {
 
 /* Title and details styling */
 .about-details h2 {
-    font-size: 2rem;
+    font-size: 1.4rem;
     margin-bottom: 0.5rem;
     color: black; /* Set title color to black */
+}
+
+@media only screen and (min-width: 768px) {
+    .about-details h2 {
+        font-size: 2rem;
+    }
+}
 }
 
 /* Horizontal line after title */

@@ -403,8 +403,13 @@ body, html {
     margin-top: 1rem;
 }
 
+.about-us-social-icons a {
+     color: black;
+}
+
 .social-icons a {
-    color: white; /* Set social icons color to black */
+    /* Set social icons color to black */
+    color: grey;
     text-decoration: none;
     margin: 0 0.5rem;
     font-size: 1.5rem;

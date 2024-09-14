@@ -24,8 +24,7 @@ BookCrane is a cutting-edge book recommendation tool designed to enhance your re
 
 Watch the demo video here:
 
-![BookCrane Demo](https://github.com/dharmikm9/BookCrane/raw/main/demo/demo.mp4)
-
+https://github.com/dharmikm9/BookCrane/blob/55c5d28fbfb2b4abf3a86c57b314c4961cc84d53/demo/demo.mp4
 
 
 ## Contributing

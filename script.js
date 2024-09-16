@@ -87,7 +87,7 @@ async function fetchBookRecommendations() {
       hideError(); // Hide the error message if input is valid
       loader.style.display = 'block';
 
-      const endpoint = 'https://08c1-34-147-29-107.ngrok-free.app/recommendation';
+      const endpoint = 'https://7fc4-34-19-49-30.ngrok-free.app/recommendation';
       const requestBody = {
         query: promptInput,
       };

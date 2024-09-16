@@ -80,8 +80,8 @@ async function fetchBookRecommendations() {
 
   if (promptInput === '') {
       showError('Please enter a prompt.'); // Display error message
-  }else if (promptInput.length < 15) {
-      showError('The prompt must be at least 5 characters long.'); // Update error message with different condition
+  }else if (promptInput.length < 20) {
+      showError('The prompt must be at least 20 characters long.'); // Update error message with different condition
   }
   else {
       hideError(); // Hide the error message if input is valid
@@ -130,6 +130,7 @@ function closeBookDetail() {
 
 // Clear recommendations functionality
 document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('prompt').value = '';
     document.getElementById('recommendations').innerHTML = '';
     this.style.display = 'none';
 });

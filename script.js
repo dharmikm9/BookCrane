@@ -113,7 +113,7 @@ async function fetchBookRecommendations() {
         // Handle the response data
         updateUIWithBookRecommendations(data);
       } catch (error) {
-        showError("Unable to connect to the server. Please check your network connection or try again later."); // Display error message
+        showError("Oops! It looks like our server is taking a nap due to a tight budget. Please reach out to our developer to wake it up and get things back on track!"); // Display error message
         console.error('Error fetching book recommendations:', error);
       }finally {
            loader.style.display = 'none';
